@@ -22,9 +22,9 @@ THE SOFTWARE.
 package cmd
 
 import (
+	"github.com/pucke-uninow/path-diff/internal"
 	"github.com/spf13/cobra"
 	"os"
-	"qoubo.tech/path-diff/internal"
 )
 
 var (
