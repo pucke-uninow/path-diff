@@ -21,7 +21,7 @@ THE SOFTWARE.
 */
 package main
 
-import "qoubo.tech/path-diff/cmd"
+import "github.com/pucke-uninow/path-diff/cmd"
 
 func main() {
 	cmd.Execute()
