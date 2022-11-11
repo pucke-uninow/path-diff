@@ -3,6 +3,7 @@ package internal
 import (
 	"fmt"
 	"github.com/spf13/cobra"
+	"log"
 	"path/filepath"
 )
 
@@ -15,18 +16,25 @@ func Diff(cmd *cobra.Command, args []string) {
 	destinationPath := cmd.Flag("destination").Value.String()
 
 	if !(len(startPath) > 0 && len(destinationPath) > 0) {
+		if len(args) < 2 {
+			log.Println("Please provide start and destination path.")
+			return
+		}
+
 		startPath = args[0]
 		destinationPath = args[1]
 	}
 
 	absoluteStartPath, err := toAbsolutePath(startPath)
 	if err != nil {
-		panic(err)
+		log.Println(err.Error())
+		return
 	}
 
 	absoluteDestinationPath, err := toAbsolutePath(destinationPath)
 	if err != nil {
-		panic(err)
+		log.Print(err.Error())
+		return
 	}
 
 	relativePath, err := filepath.Rel(absoluteStartPath, absoluteDestinationPath)
