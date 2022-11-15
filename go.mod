@@ -1,5 +1,5 @@
 module github.com/pucke-uninow/path-diff
-
+replace qoubo.tech/path-diff => github.com/pucke-uninow/path-diff
 go 1.19
 
 require github.com/spf13/cobra v1.6.1
